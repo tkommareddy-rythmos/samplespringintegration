@@ -8,22 +8,22 @@ public class Student {
 
 	
     @Id
-    private int id;
+    private String id;
 	private String name;
 	private String school;
 	
-	 public Student(Integer id, String name, String school) {
+	 public Student(String id, String name, String school) {
 	        this.id = id;
 	        this.name = name;
 	        this.school = school;
 	        
 	    }
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -47,4 +47,6 @@ public class Student {
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", school=" + school + "]";
 	}
+
+	
 }
