@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.sample2app.config.StudentConfig;
 import com.example.sample2app.model.Address;
 import com.example.sample2app.model.Student;
+import com.example.sample2app.repository.StudentRepository;
 import com.example.sample2app.service.IntegrationGateway;
 
 @RestController
@@ -22,10 +23,13 @@ public class IntegrationController {
 	private IntegrationGateway integrationGateway;
 	 @Autowired
 	    private RabbitTemplate template;
+	 @Autowired
+	 private StudentRepository studentRepository;
 	
 	@PostMapping("/student")
 	public void processStudentDetails(@RequestBody Student student) {
 		integrationGateway.process(student);
+		studentRepository.save(student);
 	}
 
 	
